@@ -51,11 +51,19 @@ public class HelloHello{
       num = Integer.parseInt(args[0]);
     }
     
+    //creat an array of Strings represent each row of the output
+    String[] row = new String[num];
+   //initialize each string to a single "Q"
+    for(int n=0; n<num; n++){
+      row[n]="Q";
+    }
     /* print out the message num times */
     for(int i=0; i<num; i+=1){
-      System.out.println("Hello, World!");
+      for(int k=1; k<num; k++){
+         row[i] += "Q";
+      }
+      System.out.println(row[i]);      
     } 
-    
   } // end main method
   
 } // end class HelloWorld

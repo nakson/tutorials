@@ -17,8 +17,11 @@ public class Bugs2{
     /* iterate over the array and print out some information        */
     /* Note: we combine strings with + (the concatenation operator) */
     for(int i=0; i<words.length; i += 1){
-      System.out.println(words[i] + " has length = " + words[i].length());
-    }
-  }
+      //System.out.println(words[i] + " has length = " + words[i].length());
+      //words[i] = "jaja";
+      System.out.println("words[i] is " + words[i]);
+      System.out.println("length of words[i] is " + words[i].length());
+    } 
+  } 
   
 }

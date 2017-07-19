@@ -26,7 +26,7 @@ public class HelloInput{
     /* variables to remember input */
     String input; 
     int    number;
-    
+     
     /* keep reading user input until "end" is entered */
     do{
       System.out.print("Enter a single word and then return : ");
@@ -35,7 +35,20 @@ public class HelloInput{
       System.out.print("Enter a number and then return :");
       number = keyboardScanner.nextInt();
       
-      System.out.println("You entered : " + input + "," + number);
+       //creat an array of Strings represent each row of the output
+      String[] row = new String[number];
+      //initialize each string
+      for(int n=0; n<number; n++){
+        row[n]= input;
+      }
+      /* print out the message num times */
+      for(int i=0; i<number; i+=1){
+        for(int k=1; k<number; k++){
+          row[i] += input;
+        }
+        System.out.println(row[i]);      
+      } 
+      //System.out.println("You entered : " + input + "," + number);
     }while( !input.equals("end") );
     
       
