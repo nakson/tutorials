@@ -10,17 +10,34 @@ public class Money{
 
   
   public Money(){
-		// create an object with zero dollars and cents.
+  // create an object with zero dollars and cents.
+    dollars = 0;
+    cents = 0;
   }
   
   public Money(int c){
-		// create an object with c cents
-		// (adjusting dollars and cents so that 0<=cents<=99)
+  // creates a Money object with value as specified by 
+   // the input cents. Input value is assumed to satisfy 
+   // c >= 0
+    if(c>99){
+      cents = c%100;
+      dollars = (c - cents)/100;
+    }else{
+      cents = c;
+      dollars = 0;
+    }
   }
   
   public Money(int d, int c){
-		// create an object with d dollars and c cents
-		// (adjusting dollars and cents so that 0<=cents<=99)
+  // creates a Money object with total value as specified by 
+   // the input values. Input values are assumed to satisfy 
+   // d >= 0 and c >= 0.
+    dollars = d;
+    cents = c;
+    if(cents>99){
+      cents = c%100;
+      dollars += (c-cents)/100;
+    }
   }
   
   
@@ -36,5 +53,54 @@ public class Money{
   public String getMoney(){
     return "$" + String.format("%01d", dollars) + "." + String.format("%02d", cents);
   }
+  
+  
+  
+  //===================Add money========================
+  public void add(int c){
+    // adds c cents to the current value
+    int currCents = cents+c;
+    cents +=c;
+    if(cents>99){
+      cents = currCents%100;
+      dollars += (currCents - cents)/100;
+    }
+  }
+  
+  
+  public void add(int d, int c){
+    // adds d dollars and c cents to the current value
+    int currCents = cents+c;
+    dollars += d;
+    cents += c;
+    if(cents>99){
+      cents = currCents%100;
+      dollars += (currCents - cents)/100;
+    }
+  }
+  
+  
+  public int remove(int c){
+    // removes c cents from current value 
+    //if current  value is large enough. 
+    //Otherwise, removes as much as it can.
+    // Returns the actual amount of cents removed (may be > 100)
+    int currCents = cents-c;
+    int all = dollars*100 + cents;
+    if(all < currCents){
+      cents = 0;
+      dollars = 0;
+      return all;
+    }else{
+      cents -= c;
+      if(cents<0){
+        cents = 100+(currCents%100);
+        dollars -= (currCents+cents+1);
+      }
+    }
+    return c;
+  }
+  
+  
   
 }
