@@ -87,7 +87,7 @@ public class Money{
     // Returns the actual amount of cents removed (may be > 100)
     int currCents = cents-c;
     int all = dollars*100 + cents;
-    if(all < currCents){
+    if(all < c){
       cents = 0;
       dollars = 0;
       return all;
@@ -95,7 +95,7 @@ public class Money{
       cents -= c;
       if(cents<0){
         cents = 100+(currCents%100);
-        dollars -= (currCents+cents+1);
+        dollars -= ((currCents+c)/100+1);
       }
     }
     return c;

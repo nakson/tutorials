@@ -84,7 +84,15 @@ public class TestMoney{
       System.out.println(" fail");
     }
     
-    
-    
+    Money a = new Money(3, 10);
+    System.out.println(a.getMoney());
+    a.add(100);
+    System.out.println("add 100 cents: "+a.getMoney());
+    a.add(1, 10);
+    System.out.println("add 1 dollars and 10 cents: "+a.getMoney());
+    a.remove(100);
+    System.out.println("remove 100 cents: "+a.getMoney());
+    a.remove(10000);
+    System.out.println("remove 10000 cents (remove as much as it can): "+a.getMoney());
   }
 }
