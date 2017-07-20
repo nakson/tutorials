@@ -2,7 +2,7 @@
 
 import java.util.Random;
 
-public class Flip{
+public class Flip2{
  
  public static void main(String[] args){
    Random equally = new Random();
@@ -13,17 +13,19 @@ public class Flip{
   int countHeads = 0;
   int countTails = 0;
   double bias = 0.5;  // 50% heads, 50% tails
+  int times = 0; //second line
   boolean ok = true;
-  if(args.length == 1){
+  if(args.length == 2){
    try{
     bias = Double.parseDouble(args[0]);
+    times = Integer.parseInt(args[1]);
    }catch(Exception e){
     System.out.println("command line argument must be a number");
     ok = false;
    }
   }
   if(ok){
-    for(int i=0; i<100; i++){
+    for(int i=0; i<times; i++){
       double r = equally.nextDouble();
       if(r<bias){
         countHeads++;
@@ -40,4 +42,3 @@ public class Flip{
   
  }
 }
-
