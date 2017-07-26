@@ -46,7 +46,7 @@ public class AnimalApp{
    System.out.println(animal.noise());
   }
   System.out.println("-----------------------------------------");
-  Animal a = new Owl("haha", 2017, true);
+  Animal a = new Owl("haha", 2017, false);
    System.out.print(a+ " ... ");
    System.out.println(a.noise());
  }
