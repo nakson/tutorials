@@ -95,7 +95,14 @@ public class TestLL{
    System.out.println( "find cat: " + list.find("cat"));
    System.out.println( "find eel: " + list.find("eel"));
    System.out.println( "find dog: " + list.find("dog"));
+    System.out.println("current list   : " + alist);
+   System.out.println( "contains crow: " + alist.contains("crow"));
+   System.out.println( "contains dog: " + alist.contains("dog")+"\n");
   
+   
+   System.out.println("current list   : " + list);
+   list.swap(0,1);
+   System.out.println("swap(0,1) : " + list);
   // uncomment this next line
   // System.out.println( "same(l1,l2) = " + same(l1,l2)) ;
   

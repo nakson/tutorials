@@ -104,16 +104,20 @@ public class LList implements Comparable<LList>{
    int countP1 = 0, countP2 =0;
    Node tempP1 = head, tempP2=head;
    String dataP1=null, dataP2=null;
-   while(countP1 < p1){ 
+   while(countP1 != p1){ 
      tempP1 = tempP1.getNext();
-     dataP1 = tempP1.getData();
      countP1+=1;
    }
-    while(countP2 < p2){ 
+   
+   dataP1 = tempP1.getData();
+   //System.out.println(dataP1);
+    while(countP2 != p2){ 
      tempP2 = tempP2.getNext();
-     dataP2 = tempP2.getData();
+     
      countP2+=1;
    }
+    dataP2 = tempP2.getData();
+    //System.out.println(dataP2);
     tempP1.setData(dataP2);
     tempP2.setData(dataP1);
    return this;
